@@ -64,7 +64,7 @@ The system ensures **slot conflict prevention**, **role-based dashboards**, and 
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/evento.git
+    git clone https://github.com/ShrutiMistry25/evento.git
     ```
 
 2. **Navigate to the project directory**
