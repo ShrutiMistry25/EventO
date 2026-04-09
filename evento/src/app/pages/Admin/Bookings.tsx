@@ -158,18 +158,18 @@ export default function AdminBookings() {
     .reduce((sum, b) => sum + b.totalPrice, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
+      <header className="bg-card shadow-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" onClick={() => navigate('/admin')}>
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-4 h-4 mr-2 text-foreground" />
               Back
             </Button>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Manage Bookings</h1>
-              <p className="text-sm text-gray-600">View all bookings and payment status</p>
+              <h1 className="text-2xl font-bold text-foreground">Manage Bookings</h1>
+              <p className="text-sm text-foreground/80">View all bookings and payment status</p>
             </div>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function AdminBookings() {
                         </td>
                         <td className="py-3 px-4 text-gray-600">{booking.timeSlot}</td>
                         <td className="py-3 px-4 font-medium text-gray-900">
-                          ${booking.totalPrice}
+                          ₹{booking.totalPrice}
                         </td>
                         <td className="py-3 px-4">
                           {getStatusBadge(booking.status)}

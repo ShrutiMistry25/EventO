@@ -178,7 +178,7 @@ export default function AdminVenues() {
                     alt={venue.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.currentTarget.src = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400';
+                      e.currentTarget.src = 'https://media.istockphoto.com/id/1184628725/photo/3d-wedding-reception-background-illustration.jpg?s=612x612&w=0&k=20&c=XpFfBNDKM99vaK0N0QkvkvDFNRWIRmJNTkP6qDJbSI8=';
                     }}
                   />
                   {venue.isApproved ? (
@@ -202,7 +202,7 @@ export default function AdminVenues() {
                     </div>
                     <div className="flex items-center gap-2">
                       <DollarSign className="w-4 h-4" />
-                      ${venue.price}/hour
+                      ₹{venue.price}/hour
                     </div>
                     <div className="text-xs text-gray-500">
                       Provider: {getProviderName(venue.providerId)}

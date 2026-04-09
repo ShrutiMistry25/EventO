@@ -1,3 +1,8 @@
+
+@import "./styles/fonts.css";
+@import "./styles/theme.css";
+@import "./styles/tailwind.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,3 +23,6 @@ body {
   background-color: white;
   color: #111827;
 }
+
+/* Project custom styles (animations, custom utilities) */
+@import "./styles/index.css";

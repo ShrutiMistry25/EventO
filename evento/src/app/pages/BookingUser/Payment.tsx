@@ -324,7 +324,7 @@ export default function Payment() {
                 <div className="pt-3 border-t border-gray-200 space-y-2">
                   <div className="flex justify-between text-gray-700">
                     <span>Venue Price</span>
-                    <span className="font-semibold">${bookingData.venue.price}</span>
+                    <span className="font-semibold">₹{bookingData.venue.price}</span>
                   </div>
                   {bookingData.services.length > 0 && (
                     <div className="text-sm text-gray-600">

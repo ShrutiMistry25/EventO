@@ -150,7 +150,7 @@ export default function ProviderDashboard() {
             </div>
             <h3 className="text-gray-600 text-sm mb-1">My Earnings</h3>
             <p className="text-3xl font-bold text-gray-900">
-              ${stats.totalEarnings.toLocaleString()}
+              ₹{stats.totalEarnings.toLocaleString()}
             </p>
           </div>
 
@@ -247,7 +247,7 @@ export default function ProviderDashboard() {
                         <span>Capacity: {venue.capacity || 'N/A'}</span>
                         <span>•</span>
                         <span className="font-semibold text-blue-600">
-                          ${venue.price}/hour
+                          ₹{venue.price}/hour
                         </span>
                       </div>
 
@@ -330,7 +330,7 @@ export default function ProviderDashboard() {
                         {booking.timeSlot}
                       </td>
                       <td className="py-3 px-4 text-sm font-semibold text-green-600">
-                        ${booking.totalPrice}
+                        ₹{booking.totalPrice}
                       </td>
                       <td className="py-3 px-4">
                         <span className={`px-2 py-1 text-xs rounded-full font-semibold ${

@@ -24,11 +24,11 @@ export default function BookingUserDashboard() {
     <DashboardLayout role="user">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white">
+        <div className="bg-card rounded-2xl p-8 md:p-12 text-foreground">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Find Your Perfect Venue
           </h1>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-foreground/80 mb-8">
             Discover and book amazing venues for your next event
           </p>
 
@@ -92,7 +92,7 @@ export default function BookingUserDashboard() {
                 <label className="block text-sm font-medium text-transparent">Search</label>
                 <button
                   onClick={handleSearch}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 >
                   <Search className="w-5 h-5" />
                   Search

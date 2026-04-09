@@ -225,7 +225,7 @@ export default function Booking() {
                           {service.name}
                         </p>
                         <p className="text-sm text-gray-600">
-                          +${service.price}
+                          +₹{service.price}
                         </p>
                       </div>
                     </div>
@@ -245,7 +245,7 @@ export default function Booking() {
               <div className="space-y-3 pb-4 border-b border-gray-200">
                 <div className="flex justify-between text-gray-700">
                   <span>Venue Price</span>
-                  <span className="font-semibold">${venue.price}</span>
+                  <span className="font-semibold">₹{venue.price}</span>
                 </div>
                 {additionalServices.map((serviceId) => {
                   const service = services.find((s) => s.id === serviceId);
@@ -255,7 +255,7 @@ export default function Booking() {
                       className="flex justify-between text-gray-700 text-sm"
                     >
                       <span>{service.name}</span>
-                      <span className="font-semibold">+${service.price}</span>
+                      <span className="font-semibold">+₹{service.price}</span>
                     </div>
                   ) : null;
                 })}
@@ -264,7 +264,7 @@ export default function Booking() {
               <div className="flex justify-between text-lg">
                 <span className="font-bold text-gray-900">Total</span>
                 <span className="font-bold text-blue-600">
-                  ${calculateTotal()}
+                  ₹{calculateTotal()}
                 </span>
               </div>
 

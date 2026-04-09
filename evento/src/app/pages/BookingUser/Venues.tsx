@@ -180,7 +180,7 @@ export default function Venues() {
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200">
                     <div>
                       <span className="text-2xl font-bold text-gray-900">
-                        ${venue.price}
+                        ₹{venue.price}
                       </span>
                       <span className="text-gray-600 text-sm">/day</span>
                     </div>

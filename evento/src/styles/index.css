@@ -1,7 +1,3 @@
-@import './fonts.css';
-@import './tailwind.css';
-@import './theme.css';
-
 /* Custom animations and styles for VenueBook */
 @keyframes fade-in {
   from {

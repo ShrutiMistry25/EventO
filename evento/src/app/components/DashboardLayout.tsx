@@ -45,7 +45,7 @@ export default function DashboardLayout({ children, role }: DashboardLayoutProps
   const navItems = role === 'user' ? userNavItems : providerNavItems;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Mobile Sidebar Backdrop */}
       {sidebarOpen && (
         <div
