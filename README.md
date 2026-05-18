@@ -1,120 +1,73 @@
-# Evento – Venue Booking Platform
+# React + TypeScript + Vite
 
-Evento is a full-stack venue booking web application designed to simplify the process of discovering, managing, and booking venues for different types of events.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-The platform connects Customers, Venue Providers, and Admins in a structured, role-based system.
+Currently, two official plugins are available:
 
-## Project Description
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Evento is a role-based web application that supports three types of users: Admin, Venue Provider, and Customer (Booking User).
+## React Compiler
 
-Customers can search venues based on location, date, and time, view venue details, check availability, communicate with providers through chat, and complete bookings using a simulated payment system.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Venue Providers can register their venues, manage pricing and availability, view bookings related only to their own venues, and interact with customers.
+## Expanding the ESLint configuration
 
-Admins have full control over the platform, including managing users, venues, and bookings.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-The system ensures:
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-- Role-based authentication
-- Provider-level data privacy
-- Slot conflict prevention
-- Separate dashboards for each role
-- Scalable architecture
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-The platform is suitable for events such as weddings, parties, conferences, corporate meetings, and social gatherings.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Tech Stack
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Frontend:
-- React 
-- TypeScript
-- Tailwind CSS
-- JavaScript 
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Backend:
-- Node.js
-- Express.js
-- MongoDB
-
-Tools:
-- Git & GitHub
-- VS Code
-
-## Project Features
-
-- Role-Based Authentication (Admin / Provider / Customer)
-- Secure Signup and Login System
-- Separate Dashboards for each role
-- Venue Search by location, date, and time
-- Real-Time Availability Check
-- Slot Booking with Double-Booking Prevention
-- Provider-Level Venue Privacy (Providers can only view their own venues)
-- Venue Management System
-- Booking Management System
-- Chat Interface between Customer and Provider
-- Simulated Online Payment Flow
-- Responsive and Modern UI
-
-## User Roles
-
-### Admin
-- View total users, venues, and bookings
-- Manage users
-- Manage venues
-- View all bookings
-- Monitor overall platform activity
-
-### Venue Provider
-- Register and login
-- Add and manage venues
-- Set pricing and availability
-- View bookings for own venues only
-- Track earnings
-- Chat with customers
-
-### Customer (Booking User)
-- Register and login
-- Search and view venues
-- Select date and time slots
-- Book available venues
-- Make payments
-- Chat with venue providers
-- View booking history
-
-## How to Run Locally
-
-1. Clone the repository
-
-git clone https://github.com/ShrutiMistry25/evento.git
-
-2. Navigate to the project directory
-
-cd evento
-
-3. Install dependencies
-
-npm install
-
-4. Start the development server
-
-npm run dev
-
-The application should now be running on your local machine!
-
-## Future Improvements
-
-- JWT Authentication
-- Full Backend API Integration
-- MongoDB Database Connection
-- Real Payment Gateway Integration
-- Email Notifications
-- Cloud Deployment (Vercel / Render)
-
-## Contributing
-
-Feel free to open issues or submit pull requests for improvements or new features.
-
-## Author
-
-Shruti Mistry
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

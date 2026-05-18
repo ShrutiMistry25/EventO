@@ -1,0 +1,282 @@
+/* Fix for input icon overlap in login form */
+.input-with-icon {
+  position: relative;
+}
+.input-with-icon input {
+  padding-left: 2.5rem !important; /* Ensures enough space for icon */
+}
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #b0b0b0;
+  pointer-events: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Soft earthy beige palette from the reference image */
+  --background: #F2EBE4;
+  --background-alt: #E6D5C5;
+  --foreground: #332E2B;
+  --text: #332E2B;
+
+  --primary: #DBC4B1;
+  --primary-foreground: #332E2B;
+
+  --secondary: #E6D5C5;
+  --secondary-foreground: #332E2B;
+
+  --accent: #E6D5C5;
+  --accent-foreground: #332E2B;
+  
+  --card: #FDFBF9; /* Lighter shade so it stands out against background */
+  --card-foreground: #332E2B;
+  --card-bg: #FDFBF9;
+  
+  --popover: #FDFBF9;
+  --popover-foreground: #332E2B;
+
+  --muted: #E6D5C5;
+  --muted-foreground: #6A605B;
+
+  --destructive: #A35050;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #DBC4B1;
+  --input: #E6D5C5;
+  --input-background: #FAF6F2;
+  --ring: #DBC4B1;
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+  --font-size: 16px;
+
+  --font-family-sans: 'Inter', 'Open Sans', Arial, sans-serif;
+  --font-family-serif: 'Playfair Display', serif;
+
+  --font-weight-normal: 500;
+  /* Making general text a little bolder */
+  --font-weight-medium: 600;
+  /* Bolder headers */
+  --font-weight-bold: 700;
+
+  --sidebar: #FDFBF9;
+  --sidebar-foreground: #332E2B;
+  --sidebar-primary: #DBC4B1;
+  --sidebar-primary-foreground: #332E2B;
+  --sidebar-accent: #E6D5C5;
+  --sidebar-accent-foreground: #332E2B;
+  --sidebar-border: #DBC4B1;
+  --sidebar-ring: #DBC4B1;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+body,
+html {
+  font-family: var(--font-family-sans);
+  background-color: var(--background) !important;
+  color: var(--text) !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-weight: var(--font-weight-normal);
+  /* Applying the little bold */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-serif);
+    font-weight: var(--font-weight-bold);
+    color: var(--foreground);
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 3rem;
+    /* Larger, bolder headings based on the picture */
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  label {
+    font-weight: var(--font-weight-medium);
+  }
+
+  button {
+    font-family: var(--font-family-sans);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  input {
+    font-weight: var(--font-weight-normal);
+  }
+}
+
+/* Base resets and overrides to ensure theme applies everywhere */
+#root,
+.app-shell,
+.page-content,
+.min-h-screen,
+.max-w-7xl,
+.container {
+  background-color: transparent !important;
+  /* Let body background show through */
+}
+
+/* Force icons to inherit */
+.icon,
+.icon * {
+  color: currentColor !important;
+  fill: currentColor !important;
+}
+
+/* Background overrides to strip out explicit colors blocking the theme */
+.bg-white,
+.bg-gray-50,
+.bg-blue-50,
+.bg-purple-50,
+.bg-teal-50,
+.bg-blue-600,
+.bg-slate-50,
+.bg-blue-100,
+.bg-red-50,
+.bg-red-100,
+.bg-green-100,
+.bg-orange-100 {
+  background-color: var(--card) !important;
+}
+
+/* Strip gradients */
+.bg-gradient-to-br,
+.bg-gradient-to-r,
+.bg-gradient-to-l,
+.bg-gradient-to-t,
+.bg-gradient-to-b,
+.from-blue-600,
+.from-purple-600,
+.from-blue-500,
+.to-purple-600,
+.to-teal-50 {
+  background-image: none !important;
+  background-color: var(--background) !important;
+}
+
+/* Strip explicit text colors */
+.text-gray-900,
+.text-gray-700,
+.text-gray-600,
+.text-blue-600,
+.text-green-600,
+.text-orange-600,
+.text-red-700,
+.text-green-700,
+.text-blue-700,
+.text-purple-600,
+.text-purple-500,
+.text-blue-50,
+.text-blue-100,
+.text-blue-200,
+.text-blue-800 {
+  color: var(--foreground) !important;
+}
+
+/* Input elements styling to align with soft aesthetics */
+input,
+select,
+textarea {
+  border: 1px solid var(--border) !important;
+  background-color: var(--input-background) !important;
+  color: var(--foreground) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Button aesthetics corresponding to the image (minimalist, flat, slightly rounded) */
+button {
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+button:not(.text-blue-600):not([class*="bg-transparent"]):not([class*="text-"]) {
+  /* Only apply primary styling to buttons that aren't explicitly text buttons */
+}
+
+button:hover:not(.text-blue-600):not([class*="bg-transparent"]):not([class*="text-"]) {
+  opacity: 0.9;
+}

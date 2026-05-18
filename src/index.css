@@ -1,0 +1,28 @@
+
+@import "./styles/fonts.css";
+@import "./styles/theme.css";
+@import "./styles/tailwind.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure the root fills the viewport so utility classes like `min-h-screen` work */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* sensible defaults */
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  color: #111827;
+}
+
+/* Project custom styles (animations, custom utilities) */
+@import "./styles/index.css";
